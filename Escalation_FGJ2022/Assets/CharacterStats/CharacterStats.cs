@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
+	public string characterName;
 	// Set the units max health
 	public int maxHealth = 100;
-  public int startingAttack = 10;
-  public int attackRecoil = 200;
+	public int startingAttack = 10;
+	public int attackRecoil = 200;
 	public int currentHealth {get; private set;}
-  public int attackDamage {get; private set;}
+	public int attackDamage {get; private set;}
 	
 	// Set variables for different stats this has (damage, armor, etc)
 	public Stat damage;
@@ -23,6 +24,10 @@ public class CharacterStats : MonoBehaviour
 		currentHealth = maxHealth;
     attackDamage = startingAttack;
 	}
+	
+	void OnBecameInvisible() {
+         Destroy(gameObject);
+    }
 	
 	void Update ()
 	{
@@ -54,7 +59,7 @@ public class CharacterStats : MonoBehaviour
 	public virtual void Die ()
 	{
 		Debug.Log(transform.name + " died.");
-		
+		StateManager.instance.BattleEnd(characterName);
 		//animator.SetBool("IsDead", true);
 		GetComponent<Collider2D>().enabled = false;
 		this.enabled = false;
