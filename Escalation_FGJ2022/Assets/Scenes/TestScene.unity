@@ -293,6 +293,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8323110258679048810, guid: f7d909ad83d533d4ea171459a8a4a472, type: 3}
+      propertyPath: m_opponet
+      value: 
+      objectReference: {fileID: 893391172}
+    - target: {fileID: 8323110258679048810, guid: f7d909ad83d533d4ea171459a8a4a472, type: 3}
       propertyPath: m_FacingRight
       value: 0
       objectReference: {fileID: 0}
@@ -340,6 +344,14 @@ PrefabInstance:
     - target: {fileID: 5264813478241901121, guid: 90605535eaf967c4e9fae120fb6f6490, type: 3}
       propertyPath: m_Name
       value: player_char
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264813478241901124, guid: 90605535eaf967c4e9fae120fb6f6490, type: 3}
+      propertyPath: m_opponet
+      value: 
+      objectReference: {fileID: 1969037801}
+    - target: {fileID: 5264813478241901124, guid: 90605535eaf967c4e9fae120fb6f6490, type: 3}
+      propertyPath: m_JumpForce
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5264813478241901126, guid: 90605535eaf967c4e9fae120fb6f6490, type: 3}
       propertyPath: m_RootOrder
@@ -499,3 +511,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1969037801 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8323110258679048809, guid: f7d909ad83d533d4ea171459a8a4a472, type: 3}
+  m_PrefabInstance: {fileID: 432716453}
+  m_PrefabAsset: {fileID: 0}

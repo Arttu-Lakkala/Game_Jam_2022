@@ -12,7 +12,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
-  
+  [SerializeField] private Transform m_opponet;							// A position marking where to check for ceilings
   
   public float runSpeed = 50;     //runspeed
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -42,6 +42,10 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+    if((m_opponet.position.x - gameObject.GetComponent<Rigidbody2D>().position.x)<0)
+    {
+      m_FacingRight = false;
+    }
 	}
 
 	private void FixedUpdate()
@@ -61,6 +65,10 @@ public class CharacterController2D : MonoBehaviour
 					OnLandEvent.Invoke();
 			}
 		}
+    //check if flip
+    if(((m_opponet.position.x - gameObject.GetComponent<Rigidbody2D>().position.x)>0) != m_FacingRight){
+      Flip();
+    }
 	}
 
 
@@ -115,18 +123,6 @@ public class CharacterController2D : MonoBehaviour
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
-			// If the input is moving the player right and the player is facing left...
-			if (move > 0 && !m_FacingRight)
-			{
-				// ... flip the player.
-				Flip();
-			}
-			// Otherwise if the input is moving the player left and the player is facing right...
-			else if (move < 0 && m_FacingRight)
-			{
-				// ... flip the player.
-				Flip();
-			}
 		}
 		// If the player should jump...
 		if (m_Grounded && jump)

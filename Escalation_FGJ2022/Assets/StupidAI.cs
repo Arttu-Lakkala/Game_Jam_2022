@@ -72,7 +72,6 @@ public class StupidAI : MonoBehaviour
       {
         movement_state = (Random.Range(0, 3)-1);
         nextMovementChange = (Time.time +Random.Range(1, 8));
-        Debug.Log(movement_state);
       }
       
       
