@@ -224,7 +224,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8323110258679048810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +249,6 @@ MonoBehaviour:
   m_ParticleSystem: {fileID: 5008262865178962009}
   m_CeilingCheck: {fileID: 8323110258845135844}
   m_CrouchDisableCollider: {fileID: 0}
-  m_opponet: {fileID: 0}
   runSpeed: 50
   OnLandEvent:
     m_PersistentCalls:
