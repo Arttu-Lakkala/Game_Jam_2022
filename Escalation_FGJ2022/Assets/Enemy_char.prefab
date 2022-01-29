@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 8323110258679048810}
   - component: {fileID: 8323110258679048821}
   - component: {fileID: 8323110258679048814}
-  m_Layer: 0
+  - component: {fileID: 89297676}
+  m_Layer: 7
   m_Name: Enemy_char
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,6 +181,24 @@ MonoBehaviour:
   target: {fileID: 0}
   self: {fileID: 8323110258679048809}
   controller: {fileID: 8323110258679048810}
+--- !u!114 &89297676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8323110258679048820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38aed45989cb8a9449437cd642b64e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  damage:
+    baseValue: 0
+  armor:
+    baseValue: 0
+  animator: {fileID: 0}
 --- !u!1 &8323110258845135847
 GameObject:
   m_ObjectHideFlags: 0
