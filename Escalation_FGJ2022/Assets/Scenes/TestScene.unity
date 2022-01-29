@@ -410,6 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  startingAttack: 10
   damage:
     baseValue: 0
   armor:
