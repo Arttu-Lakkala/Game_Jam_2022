@@ -7,19 +7,19 @@ public class CharacterController2D : MonoBehaviour
 	public float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	public float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	public bool m_AirControl = false;							// Whether or not a player can steer while jumping;
+  public bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
   
   
-  public int Health = 100;				// A collider that will be disabled when crouching
   public float runSpeed = 50;     //runspeed
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
-	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+	
 	private Vector3 m_Velocity = Vector3.zero;
 
 	[Header("Events")]
