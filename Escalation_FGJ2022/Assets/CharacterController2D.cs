@@ -71,15 +71,15 @@ public class CharacterController2D : MonoBehaviour
     }
 	}
   
-  public void HurtRecoil(recoil)
+  public void HurtRecoil(float recoil)
   {
     if (m_FacingRight)
     {
-      m_Rigidbody2D.AddForce(new Vector2(-recoil, recoil*1.5));
+      m_Rigidbody2D.AddForce(new Vector2(-recoil, recoil*2));
     }
     else
     {
-      m_Rigidbody2D.AddForce(new Vector2(recoil, recoil*1.5));
+      m_Rigidbody2D.AddForce(new Vector2(recoil, recoil*2));
     }
   }
 
