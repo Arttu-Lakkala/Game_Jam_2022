@@ -4,7 +4,9 @@ public class CharacterStats : MonoBehaviour
 {
 	// Set the units max health
 	public int maxHealth = 100;
+  public int startingAttack = 10;
 	public int currentHealth {get; private set;}
+  public int attackDamage {get; private set;}
 	
 	// Set variables for different stats this has (damage, armor, etc)
 	public Stat damage;
@@ -16,6 +18,7 @@ public class CharacterStats : MonoBehaviour
 	{
 		// Set max health when created
 		currentHealth = maxHealth;
+    attackDamage = startingAttack;
 	}
 	
 	void Update ()

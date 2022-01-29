@@ -15,10 +15,9 @@ public class StupidAI : MonoBehaviour
   
   public CharacterController2D controller;
   public float reaction_dist = 1.5f;
-  public float jumpRate = 2f;
+  public float jumpRate = 1f;
   public float attackRate = 2f;
   public float attackRange = 0.5f;
-	public int attackDamage = 10;
   
   public LayerMask playerLayer;
   
@@ -97,7 +96,7 @@ public class StupidAI : MonoBehaviour
 		//Deal damage
 		foreach (Collider2D enemy in hitEnemies)
 		{
-			enemy.GetComponent<CharacterStats>().TakeDamage(attackDamage);
+			enemy.GetComponent<CharacterStats>().TakeDamage(gameObject.GetComponent<CharacterStats>().attackDamage);
 			Debug.Log("Hit Player");
 		}
 	}  

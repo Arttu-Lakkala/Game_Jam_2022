@@ -11,7 +11,6 @@ public class PlayerCombat : MonoBehaviour
 	public Transform attackPoint;
 	//Area of attack and damage
 	public float attackRange = 0.5f;
-	public int attackDamage = 10;
 	
 	//Cooldown between each attack
 	public float attackRate = 2f;
@@ -42,7 +41,7 @@ public class PlayerCombat : MonoBehaviour
 		//Deal damage
 		foreach (Collider2D enemy in hitEnemies)
 		{
-			enemy.GetComponent<CharacterStats>().TakeDamage(attackDamage);
+			enemy.GetComponent<CharacterStats>().TakeDamage(gameObject.GetComponent<CharacterStats>().attackDamage);
 			Debug.Log("hit an enemy");
 		}
 	}
