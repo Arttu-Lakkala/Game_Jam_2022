@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
-    public float runSpeed = 50;
     
     float horizontalMove = 0f;
     bool jump = false;
@@ -14,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
        //get horisontal movement based on movespeed
-       horizontalMove = Input.GetAxisRaw ("Horizontal")*runSpeed;
+      horizontalMove = Input.GetAxisRaw ("Horizontal");
       if(Input.GetAxisRaw ("Vertical")>0)
       {
         jump= true;
@@ -35,6 +34,6 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate ()
     {
       //move char
-      controller.Move(horizontalMove * Time.fixedDeltaTime,crouch,jump);
+      controller.Move(horizontalMove,crouch,jump);
     }
 }
