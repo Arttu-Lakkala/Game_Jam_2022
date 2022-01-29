@@ -13,10 +13,16 @@ public class StupidAI : MonoBehaviour
   bool jump = false;
   bool crouch = false;
   // Update is called once per frame
+  void start()
+  {
+    Random.InitState(18);
+  }
+  
   void Update()
   {
-     // move towards player horizonttaly
-     Debug.Log(self.position.x - target.position.x);
+     
+     // move towards player horizontaly
+      Debug.Log(Random.value);
       if((self.position.x - target.position.x)>reaction_dist)
       {
         horizontalMove = -1;
