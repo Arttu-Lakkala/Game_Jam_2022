@@ -70,6 +70,18 @@ public class CharacterController2D : MonoBehaviour
       Flip();
     }
 	}
+  
+  public void HurtRecoil(recoil)
+  {
+    if (m_FacingRight)
+    {
+      m_Rigidbody2D.AddForce(new Vector2(-recoil, recoil*1.5));
+    }
+    else
+    {
+      m_Rigidbody2D.AddForce(new Vector2(recoil, recoil*1.5));
+    }
+  }
 
 
 	public void Move(float move, bool crouch, bool jump)

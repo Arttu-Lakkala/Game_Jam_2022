@@ -5,6 +5,7 @@ public class CharacterStats : MonoBehaviour
 	// Set the units max health
 	public int maxHealth = 100;
   public int startingAttack = 10;
+  public int attackRecoil = 100;
 	public int currentHealth {get; private set;}
   public int attackDamage {get; private set;}
 	
@@ -13,9 +14,11 @@ public class CharacterStats : MonoBehaviour
 	public Stat armor;
 	
 	public Animator animator;
-	
+	private CharacterController2D controller;
+  
 	void Awake ()
 	{
+    controller = GetComponent<CharacterController2D>();
 		// Set max health when created
 		currentHealth = maxHealth;
     attackDamage = startingAttack;
@@ -34,11 +37,14 @@ public class CharacterStats : MonoBehaviour
 		damage = Mathf.Clamp(damage, 0, int.MaxValue);
 		currentHealth -= damage;
 		
+    
 		//play hurt animation depending on enemy / player
 		//animator.SetTrigger("Hurt");
+    controller.HurtRecoil(attackRecoil);
 		
 		Debug.Log (transform.name + " takes " + damage +  " damage.");
 		
+    
 		if (currentHealth <= 0)
 		{
 			Die();
