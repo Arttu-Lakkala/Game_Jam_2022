@@ -26,16 +26,12 @@ public class StupidAI : MonoBehaviour
   
   //-1, 0, 1 based on wether we move away at or stay still
   int movement_state;
-  
-  
-  float horizontalMove = 0f;
   bool jump = false;
   bool crouch = false;
   
   // Update is called once per frame
   void Awake()
   {
-    Debug.Log("awake");
     //iniate pseudo randomnes
     Random.InitState(18);
     nextJumpTime = Random.Range(2, 20)/jumpRate;
@@ -73,26 +69,12 @@ public class StupidAI : MonoBehaviour
         movement_state = (Random.Range(0, 3)-1);
         nextMovementChange = (Time.time +Random.Range(1, 8));
       }
-      
-      
-      // move towards player horizontaly
-      if((self.position.x - target.position.x)>0)
-      {
-        horizontalMove = -1;
-      }
-      else if ((self.position.x - target.position.x)<0)
-      {
-        horizontalMove = 1;
-      }
-      else
-      {
-        horizontalMove = 0;
-      }
   }
+  
    void FixedUpdate()
   {
     //move char
-    controller.Move(horizontalMove*movement_state,crouch,jump);
+    controller.Move(movement_state,crouch,jump);
     if (jump==true)
     {
       jump = false;
@@ -110,5 +92,6 @@ public class StupidAI : MonoBehaviour
 			enemy.GetComponent<CharacterStats>().TakeDamage(gameObject.GetComponent<CharacterStats>().attackDamage);
 			Debug.Log("Hit Player");
 		}
-	}  
+	}
+  
 }

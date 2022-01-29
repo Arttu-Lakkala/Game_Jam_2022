@@ -10,9 +10,10 @@ public class CharacterController2D : MonoBehaviour
   public bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
-	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
+	[SerializeField] private Transform m_ParticleSystem;
+  [SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
-  [SerializeField] private Transform m_opponet;							// A position marking where to check for ceilings
+  private Transform m_opponet;							// A position marking where to check for ceilings
   
   public float runSpeed = 50;     //runspeed
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -21,6 +22,7 @@ public class CharacterController2D : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	
 	private Vector3 m_Velocity = Vector3.zero;
+  private ParticleSystem blood_particles;
 
 	[Header("Events")]
 	[Space]
@@ -35,6 +37,8 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Awake()
 	{
+    m_opponet = findOpponet();
+    blood_particles = m_ParticleSystem.GetComponent<ParticleSystem>();
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
 		if (OnLandEvent == null)
@@ -73,6 +77,11 @@ public class CharacterController2D : MonoBehaviour
   
   public void HurtRecoil(float recoil)
   {
+    //emmit blood particles
+    blood_particles.Clear();
+    blood_particles.Play();
+    
+    //aply recoil
     if (m_FacingRight)
     {
       m_Rigidbody2D.AddForce(new Vector2(-recoil, recoil*2));
@@ -156,4 +165,23 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+  
+  //set opponet and target if enemy
+  private Transform findOpponet()
+  {
+    Transform opponet;
+    if (gameObject.name=="player_char")
+    {
+      //find enemy if player
+      opponet = GameObject.Find("Enemy_char").transform;
+    }
+    else
+    {
+      //find player if enemy
+      opponet = GameObject.Find("player_char").transform;
+    }
+    //return opponet
+    return opponet;
+  }
+  
 }

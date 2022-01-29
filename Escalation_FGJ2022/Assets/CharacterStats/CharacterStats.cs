@@ -5,7 +5,7 @@ public class CharacterStats : MonoBehaviour
 	// Set the units max health
 	public int maxHealth = 100;
   public int startingAttack = 10;
-  public int attackRecoil = 100;
+  public int attackRecoil = 200;
 	public int currentHealth {get; private set;}
   public int attackDamage {get; private set;}
 	
