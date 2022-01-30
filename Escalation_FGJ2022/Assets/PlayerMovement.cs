@@ -35,9 +35,9 @@ public class PlayerMovement : MonoBehaviour
     {
       //move char
       controller.Move(horizontalMove,crouch,jump);
-      if(jump)
+      if(jump == true && gameObject.GetComponent<Transform>().position.y<-2.6)
       {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(jumpSound);
+        gameObject.GetComponent<AudioSource>().PlayOneShot(jumpSound, 0.4f);
       }
     }
 }
