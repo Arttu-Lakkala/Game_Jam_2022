@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
-    
+    public AudioClip jumpSound;
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
@@ -35,5 +35,9 @@ public class PlayerMovement : MonoBehaviour
     {
       //move char
       controller.Move(horizontalMove,crouch,jump);
+      if(jump)
+      {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(jumpSound);
+      }
     }
 }

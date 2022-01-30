@@ -17,8 +17,10 @@ public class StupidAI : MonoBehaviour
   public float jumpRate = 1f;
   public float attackRate = 2f;
   public float attackRange = 0.5f;
+  
   public AudioClip hit1;
   public AudioClip hit2;
+  public AudioClip jumpSound;
   
   public LayerMask playerLayer;
   
@@ -80,6 +82,7 @@ public class StupidAI : MonoBehaviour
     controller.Move(movement_state,crouch,jump);
     if (jump==true)
     {
+      gameObject.GetComponent<AudioSource>().PlayOneShot(jumpSound);
       jump = false;
     }
   }
@@ -94,8 +97,9 @@ public class StupidAI : MonoBehaviour
 		{
       //deal damage
 			enemy.GetComponent<CharacterStats>().TakeDamage(gameObject.GetComponent<CharacterStats>().attackDamage);
-			//select sound                {
-      if(Random.Range(0, 2)>1)
+			//select sound
+      int pick_sound = (Random.Range(1, 3)-1);
+      if(pick_sound>0)
       {
         playNext = hit1;
       }

@@ -37,7 +37,14 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Awake()
 	{
-    m_opponet = findOpponet();
+    if (gameObject.name=="player_char")
+    {
+      m_opponet = GameObject.Find("Enemy_char").transform;
+    }
+    else
+    {
+      m_opponet = findOpponet();
+    }
     blood_particles = m_ParticleSystem.GetComponent<ParticleSystem>();
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
@@ -69,9 +76,16 @@ public class CharacterController2D : MonoBehaviour
 					OnLandEvent.Invoke();
 			}
 		}
-    //check if flip
-    if(((m_opponet.position.x - gameObject.GetComponent<Rigidbody2D>().position.x)>0) != m_FacingRight){
-      Flip();
+    if(m_opponet!=null)
+    {
+      //check if flip
+      if(((m_opponet.position.x - gameObject.GetComponent<Rigidbody2D>().position.x)>0) != m_FacingRight){
+        Flip();
+      }
+    }
+    else
+    {
+      m_opponet = findOpponet();
     }
 	}
   
@@ -173,7 +187,7 @@ public class CharacterController2D : MonoBehaviour
     if (gameObject.name=="player_char")
     {
       //find enemy if player
-      opponet = GameObject.Find("Enemy_char").transform;
+      opponet = GameObject.Find("Enemy_char(Clone)").transform;
     }
     else
     {

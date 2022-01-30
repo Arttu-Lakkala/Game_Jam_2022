@@ -305,6 +305,7 @@ MonoBehaviour:
   attackRange: 0.5
   hit1: {fileID: 8300000, guid: de9ac489e2a1f0f4d9089b18e56c28ba, type: 3}
   hit2: {fileID: 8300000, guid: 0e833ac645690004183d9910644b7b1a, type: 3}
+  jumpSound: {fileID: 8300000, guid: 344470b66d1285445b49ac0fa88780fa, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

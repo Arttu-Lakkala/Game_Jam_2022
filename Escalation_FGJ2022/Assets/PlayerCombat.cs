@@ -6,6 +6,8 @@ public class PlayerCombat : MonoBehaviour
 {
 	
 	public Animator animator;
+  public AudioClip hit1;
+  public AudioClip hit2;
 	
 	//Where the attack originates
 	public Transform attackPoint;
@@ -17,6 +19,7 @@ public class PlayerCombat : MonoBehaviour
 	float nextAttackTime = 0f;
 	
 	public LayerMask enemyLayers;
+  private AudioClip playNext;
 
 
     // Update is called once per frame
@@ -41,6 +44,8 @@ public class PlayerCombat : MonoBehaviour
 		//Deal damage
 		foreach (Collider2D enemy in hitEnemies)
 		{
+      playNext = hit2;
+      enemy.GetComponent<AudioSource>().PlayOneShot(playNext);
 			enemy.GetComponent<CharacterStats>().TakeDamage(gameObject.GetComponent<CharacterStats>().attackDamage);
 			Debug.Log("hit an enemy");
 		}
