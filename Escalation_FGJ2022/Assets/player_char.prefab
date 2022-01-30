@@ -318,6 +318,7 @@ MonoBehaviour:
   armor:
     baseValue: 0
   animator: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: a9437791a2b4a9447b642763585c9366, type: 3}
 --- !u!82 &7725598497359692778
 AudioSource:
   m_ObjectHideFlags: 0
