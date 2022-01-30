@@ -7,14 +7,14 @@ public class CharacterStats : MonoBehaviour
 	public int maxHealth = 100;
 	public int startingAttack = 10;
 	public int attackRecoil = 200;
-	public int currentHealth {get; private set;}
-	public int attackDamage {get; private set;}
+	public int currentHealth;
+	public int attackDamage;
 	
 	// Set variables for different stats this has (damage, armor, etc)
 	public Stat damage;
 	public Stat armor;
 	public Animator animator;
-  public AudioClip deathSound;
+	public AudioClip deathSound;
 	private CharacterController2D controller;
   
 	void Awake ()
@@ -45,7 +45,7 @@ public class CharacterStats : MonoBehaviour
     
 		//play hurt animation depending on enemy / player
 		//animator.SetTrigger("Hurt");
-    controller.HurtRecoil(attackRecoil);
+		controller.HurtRecoil(attackRecoil);
 		
 		Debug.Log (transform.name + " takes " + damage +  " damage.");
 		
@@ -59,7 +59,7 @@ public class CharacterStats : MonoBehaviour
 	public virtual void Die ()
 	{
 		Debug.Log(transform.name + " died.");
-    gameObject.GetComponent<AudioSource>().PlayOneShot(deathSound);
+		gameObject.GetComponent<AudioSource>().PlayOneShot(deathSound);
 		StateManager.instance.BattleEnd(characterName);
 		//animator.SetBool("IsDead", true);
 		GetComponent<Collider2D>().enabled = false;
