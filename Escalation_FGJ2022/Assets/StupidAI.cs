@@ -17,6 +17,8 @@ public class StupidAI : MonoBehaviour
   public float jumpRate = 1f;
   public float attackRate = 2f;
   public float attackRange = 0.5f;
+  public AudioClip hit1;
+  public AudioClip hit2;
   
   public LayerMask playerLayer;
   
@@ -28,12 +30,13 @@ public class StupidAI : MonoBehaviour
   int movement_state;
   bool jump = false;
   bool crouch = false;
+  private AudioClip playNext;
   
   // Update is called once per frame
   void Awake()
   {
     //iniate pseudo randomnes
-    Random.InitState(18);
+    Random.InitState(50);
     nextJumpTime = Random.Range(2, 20)/jumpRate;
     nextAttackTime = Random.Range(2, 20)/attackRate;
     nextMovementChange = Random.Range(1, 8);
@@ -89,8 +92,19 @@ public class StupidAI : MonoBehaviour
 		//Deal damage
 		foreach (Collider2D enemy in hitEnemies)
 		{
+      //deal damage
 			enemy.GetComponent<CharacterStats>().TakeDamage(gameObject.GetComponent<CharacterStats>().attackDamage);
-			Debug.Log("Hit Player");
+			//select sound                {
+      if(Random.Range(0, 2)>1)
+      {
+        playNext = hit1;
+      }
+      else
+      {
+        playNext = hit2;
+      }
+      enemy.GetComponent<AudioSource>().PlayOneShot(playNext);
+      Debug.Log("Hit Player");
 		}
 	}
   
