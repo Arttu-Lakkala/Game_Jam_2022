@@ -25,13 +25,10 @@ public class CharacterStats : MonoBehaviour
     attackDamage = startingAttack;
 	}
 	
-	void OnBecameInvisible() {
-         Destroy(gameObject);
-    }
-	
 	void Update ()
 	{
-		
+		if(Vector3.Distance(transform.position, Camera.main.transform.position) > 50)
+            Destroy(gameObject);
 	}
 	
 	public void TakeDamage (int damage)
@@ -63,7 +60,6 @@ public class CharacterStats : MonoBehaviour
 		StateManager.instance.BattleEnd(characterName);
 		//animator.SetBool("IsDead", true);
 		GetComponent<Collider2D>().enabled = false;
-		this.enabled = false;
 		
 	}
 }
