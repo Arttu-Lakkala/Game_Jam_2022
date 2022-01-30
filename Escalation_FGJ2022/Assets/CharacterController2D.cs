@@ -113,11 +113,14 @@ public class CharacterController2D : MonoBehaviour
     //adjust move based on movespead
     //walk if not zero
     if(move!=0){
-      m_animator.Play("Walk");
+      m_animator.ResetTrigger("Idle");
+      m_animator.ResetTrigger("Attack");
+      m_animator.SetTrigger("Walk");
     }
     else
     {
-      m_animator.Play("Idle");
+      m_animator.ResetTrigger("Walk");
+      m_animator.SetTrigger("Idle");
     }
     move = move * Time.fixedDeltaTime * runSpeed;
 		// If crouching, check to see if the character can stand up

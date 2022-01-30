@@ -89,7 +89,7 @@ public class StupidAI : MonoBehaviour
 	{
 		//Play attack anim
     //set timer
-		m_animator.Play("Attack");
+		m_animator.SetTrigger("Attack");
 		//Detect enemy in range
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 		//Deal damage
