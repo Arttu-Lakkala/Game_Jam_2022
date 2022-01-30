@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 5264813478241901124}
-  jumpSound: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: ab7576c10775586409ca300704f0c7f3, type: 3}
 --- !u!61 &5264813478241901120
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -314,6 +314,8 @@ MonoBehaviour:
   maxHealth: 100
   startingAttack: 10
   attackRecoil: 200
+  currentHealth: 0
+  attackDamage: 0
   damage:
     baseValue: 0
   armor:
