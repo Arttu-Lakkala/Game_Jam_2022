@@ -214,9 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1c58b36c88b6a428396dbdfcfed855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  self: {fileID: 8323110258679048809}
-  animator: {fileID: 2064156148447771721}
+  m_animator: {fileID: 2064156148447771721}
   attackPoint: {fileID: 7394325630193667531}
   controller: {fileID: 8323110258679048810}
   jumpRate: 2

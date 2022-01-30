@@ -5,10 +5,8 @@ using UnityEngine;
 public class StupidAI : MonoBehaviour
 {
   
-  [SerializeField] private Transform target;
-  [SerializeField] private Transform self;
+  [SerializeField] private Animator m_animator;
   
-  public Animator animator;
 	
 	//Where the attack originates
 	public Transform attackPoint;
@@ -78,18 +76,20 @@ public class StupidAI : MonoBehaviour
   
    void FixedUpdate()
   {
-    //move char
-    controller.Move(movement_state,crouch,jump);
-    if (jump==true)
-    {
-      gameObject.GetComponent<AudioSource>().PlayOneShot(jumpSound);
-      jump = false;
-    }
+      //move char
+      controller.Move(movement_state,crouch,jump);
+      if (jump==true)
+      {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(jumpSound);
+        jump = false;
+      }
   }
+  
   void Attack()
 	{
 		//Play attack anim
-		//animator.SetTrigger("Attack");
+    //set timer
+		m_animator.Play("Attack");
 		//Detect enemy in range
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 		//Deal damage

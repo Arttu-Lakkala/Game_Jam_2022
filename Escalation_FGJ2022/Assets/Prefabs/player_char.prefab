@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73de6707db106d24db7ac9d543b9eb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  m_animator: {fileID: 490546605503898654}
   hit1: {fileID: 8300000, guid: 968f5b8715651a54e832315bf3aa8eb7, type: 3}
   hit2: {fileID: 8300000, guid: 961035faf4f0cae48981ffdbc626d6c7, type: 3}
   attackPoint: {fileID: 62600461}

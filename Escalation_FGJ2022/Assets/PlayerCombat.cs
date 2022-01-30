@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
 	
-	public Animator animator;
+	[SerializeField] private Animator m_animator;
   public AudioClip hit1;
   public AudioClip hit2;
 	
@@ -38,7 +38,7 @@ public class PlayerCombat : MonoBehaviour
 	void Attack()
 	{
 		//Play attack anim
-		//animator.SetTrigger("Attack");
+		m_animator.Play("Attack");
 		//Detect enemy in range
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 		//Deal damage
