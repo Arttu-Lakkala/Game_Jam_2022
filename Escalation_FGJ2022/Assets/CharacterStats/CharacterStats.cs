@@ -13,8 +13,8 @@ public class CharacterStats : MonoBehaviour
 	// Set variables for different stats this has (damage, armor, etc)
 	public Stat damage;
 	public Stat armor;
-	
 	public Animator animator;
+  public AudioClip deathSound;
 	private CharacterController2D controller;
   
 	void Awake ()
@@ -59,6 +59,7 @@ public class CharacterStats : MonoBehaviour
 	public virtual void Die ()
 	{
 		Debug.Log(transform.name + " died.");
+    gameObject.GetComponent<AudioSource>().PlayOneShot(deathSound);
 		StateManager.instance.BattleEnd(characterName);
 		//animator.SetBool("IsDead", true);
 		GetComponent<Collider2D>().enabled = false;
