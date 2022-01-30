@@ -11,8 +11,9 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_ParticleSystem;
-  [SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
-	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
+  [SerializeField] private Transform m_CeilingCheck;    // A position marking where to check for ceilings
+	[SerializeField] private Animator m_animator;
+  [SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
   private Transform m_opponet;							// A position marking where to check for ceilings
   
   public float runSpeed = 50;     //runspeed
@@ -110,6 +111,14 @@ public class CharacterController2D : MonoBehaviour
 	public void Move(float move, bool crouch, bool jump)
 	{
     //adjust move based on movespead
+    //walk if not zero
+    if(move!=0){
+      m_animator.Play("Walk");
+    }
+    else
+    {
+      m_animator.Play("Idle");
+    }
     move = move * Time.fixedDeltaTime * runSpeed;
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
