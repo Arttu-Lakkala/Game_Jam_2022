@@ -6,7 +6,7 @@ public class CharacterStats : MonoBehaviour
 	// Set the units max health
 	public int maxHealth = 100;
 	public int startingAttack = 10;
-	public int attackRecoil = 200;
+	public int attackRecoil = 50;
 	public int currentHealth;
 	public int attackDamage;
 	
@@ -27,7 +27,7 @@ public class CharacterStats : MonoBehaviour
 	
 	void Update ()
 	{
-		if(Vector3.Distance(transform.position, Camera.main.transform.position) > 50)
+		if(Vector3.Distance(transform.position, Camera.main.transform.position) > 30)
             Destroy(gameObject);
 	}
 	
