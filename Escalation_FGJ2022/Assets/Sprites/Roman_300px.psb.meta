@@ -4554,13 +4554,13 @@ ScriptedImporter:
     spriteID: b60b522cecdfa534c8615480e2cbe924
     layerID: 58
     mosaicPosition: {x: 169, y: 56}
-  - name: Roman_oikea_kasi
-    spriteName: Roman_oikea_kasi
+  - name: Roman_vasen_jalka
+    spriteName: Roman_vasen_jalka
     isGroup: 0
     parentIndex: 0
-    spriteID: 22e283bcc8bc01e4abd8ce7a066d728e
-    layerID: 62
-    mosaicPosition: {x: 376, y: 4}
+    spriteID: 8e61e579596f2b842800b7e6a3fef9cf
+    layerID: 55
+    mosaicPosition: {x: 93, y: 242}
   - name: Roman_vasen_kasi
     spriteName: Roman_vasen_kasi
     isGroup: 0
@@ -4575,13 +4575,6 @@ ScriptedImporter:
     spriteID: b3c1ec83f74187b4ab1c51d37b52d1c4
     layerID: 57
     mosaicPosition: {x: 169, y: 4}
-  - name: Roman_vasen_jalka
-    spriteName: Roman_vasen_jalka
-    isGroup: 0
-    parentIndex: 0
-    spriteID: 8e61e579596f2b842800b7e6a3fef9cf
-    layerID: 55
-    mosaicPosition: {x: 93, y: 242}
   - name: Roman_torso
     spriteName: Roman_torso
     isGroup: 0
@@ -4596,13 +4589,6 @@ ScriptedImporter:
     spriteID: 49d436e465615ce42a4e3acc7d75989d
     layerID: 53
     mosaicPosition: {x: 4, y: 363}
-  - name: Roman_oikea_olka
-    spriteName: Roman_oikea_olka
-    isGroup: 0
-    parentIndex: 0
-    spriteID: 3fc6ab57ea6c5734f93012668d18f95c
-    layerID: 52
-    mosaicPosition: {x: 277, y: 4}
   - name: Roman_oikea_jalka
     spriteName: Roman_oikea_jalka
     isGroup: 0
@@ -4610,6 +4596,20 @@ ScriptedImporter:
     spriteID: a52e982072ec7c74faf8c92e2cb1c149
     layerID: 50
     mosaicPosition: {x: 4, y: 242}
+  - name: Roman_oikea_kasi
+    spriteName: Roman_oikea_kasi
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 22e283bcc8bc01e4abd8ce7a066d728e
+    layerID: 62
+    mosaicPosition: {x: 376, y: 4}
+  - name: Roman_oikea_olka
+    spriteName: Roman_oikea_olka
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 3fc6ab57ea6c5734f93012668d18f95c
+    layerID: 52
+    mosaicPosition: {x: 277, y: 4}
   characterData:
     bones:
     - name: bone_1
