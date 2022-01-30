@@ -5,10 +5,10 @@ public class CharacterStats : MonoBehaviour
 	public string characterName;
 	// Set the units max health
 	public int maxHealth = 100;
-  public int startingAttack = 10;
-  public int attackRecoil = 200;
+	public int startingAttack = 10;
+	public int attackRecoil = 200;
 	public int currentHealth {get; private set;}
-  public int attackDamage {get; private set;}
+	public int attackDamage {get; private set;}
 	
 	// Set variables for different stats this has (damage, armor, etc)
 	public Stat damage;
@@ -19,11 +19,15 @@ public class CharacterStats : MonoBehaviour
   
 	void Awake ()
 	{
-    controller = GetComponent<CharacterController2D>();
+		controller = GetComponent<CharacterController2D>();
 		// Set max health when created
 		currentHealth = maxHealth;
-    attackDamage = startingAttack;
+		attackDamage = startingAttack;
 	}
+	
+	void OnBecameInvisible() {
+         Destroy(gameObject);
+    }
 	
 	void Update ()
 	{

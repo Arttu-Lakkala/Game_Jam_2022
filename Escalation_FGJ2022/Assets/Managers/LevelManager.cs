@@ -17,4 +17,11 @@ public class LevelManager : MonoBehaviour
 			_ui.ToggleDeathPanel();
 		}
 	}
+	
+	public void Power () {
+		UIManager _ui = GetComponent<UIManager>();
+		if(_ui != null) {
+			_ui.TogglePowerPanel();
+		}
+	}
 }
